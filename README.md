@@ -25,16 +25,16 @@ AI 写简历常见的四类翻车，这个 skill 逐个堵住：
 
 ```bash
 # ZCode / Claude Code 等，用户级
-git clone https://github.com/AIR-DUSTER1/star-resume-writer.git \
-  ~/.zcode/skills/star-resume-writer
+git clone <本仓库地址> ~/.zcode/skills/star-resume-writer
 ```
 
 Windows（Git Bash）：
 
 ```bash
-git clone https://github.com/AIR-DUSTER1/star-resume-writer.git \
-  /c/Users/<你的用户名>/.zcode/skills/star-resume-writer
+git clone <本仓库地址> /c/Users/<你的用户名>/.zcode/skills/star-resume-writer
 ```
+
+也可以直接下载本仓库的 ZIP，解压后把整个目录放进 `~/.zcode/skills/` 下，目录名保持 `star-resume-writer`。
 
 装完后新开一个会话生效。
 
