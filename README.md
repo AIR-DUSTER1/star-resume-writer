@@ -36,17 +36,16 @@ AI 写简历常见的四类翻车，这个 skill 逐个堵住：
 也可以放在**项目级**目录（如项目根下的 `.claude/skills/`、`.zcode/skills/`），只在当前项目生效。
 
 ```bash
-# 通用写法：先克隆到任意位置
-git clone <本仓库地址> /tmp/star-resume-writer
-
-# 再拷贝到你的 skills 目录（按上表替换路径）
-cp -r /tmp/star-resume-writer ~/.claude/skills/
+# 通用写法：克隆到临时目录，再拷贝到你的 skills 目录（按上表替换目标路径）
+git clone https://github.com/AIR-DUSTER1/star-resume-writer.git
+cp -r star-resume-writer ~/.claude/skills/
 ```
 
 Windows（Git Bash）：
 
 ```bash
-cp -r /tmp/star-resume-writer /c/Users/<你的用户名>/.claude/skills/
+git clone https://github.com/AIR-DUSTER1/star-resume-writer.git
+cp -r star-resume-writer /c/Users/<你的用户名>/.claude/skills/
 ```
 
 ### 方式二：直接下载
