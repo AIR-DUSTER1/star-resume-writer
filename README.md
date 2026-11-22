@@ -2,7 +2,7 @@
 
 让 AI 帮你写简历时，不再产出「假大空」和「技术堆砌」。
 
-这是一个给 Claude / ZCode 等 AI 助手用的技能包（Skill）。装上之后，AI 在改简历时会把 STAR 法则、业务化叙述、真实性核验、版面验收当成硬约束，而不是凭感觉发挥。
+这是一个**通用**的 AI 技能包（Agent Skill）。任何支持 Agent Skills 规范的助手都能用——装上之后，AI 在改简历时会把 STAR 法则、业务化叙述、真实性核验、版面验收当成硬约束，而不是凭感觉发挥。
 
 ---
 
@@ -21,22 +21,51 @@ AI 写简历常见的四类翻车，这个 skill 逐个堵住：
 
 ## 安装
 
-把本目录放到你的 skills 目录：
+这是一个纯 Markdown 技能包，核心只有一个 `SKILL.md` 文件。任何支持 **Agent Skills** 规范的 AI 助手都能直接使用，不绑定特定产品。
+
+### 方式一：放对位置（通用）
+
+把整个目录放进你的 AI 助手的 skills 目录，目录名保持 `star-resume-writer`：
+
+| 助手 | 用户级 skills 目录 |
+|---|---|
+| Claude Code | `~/.claude/skills/` |
+| ZCode | `~/.zcode/skills/` |
+| 其他遵循 Agent Skills 规范的工具 | 见该工具的文档，通常是 `~/.<工具名>/skills/` |
+
+也可以放在**项目级**目录（如项目根下的 `.claude/skills/`、`.zcode/skills/`），只在当前项目生效。
 
 ```bash
-# ZCode / Claude Code 等，用户级
-git clone <本仓库地址> ~/.zcode/skills/star-resume-writer
+# 通用写法：先克隆到任意位置
+git clone <本仓库地址> /tmp/star-resume-writer
+
+# 再拷贝到你的 skills 目录（按上表替换路径）
+cp -r /tmp/star-resume-writer ~/.claude/skills/
 ```
 
 Windows（Git Bash）：
 
 ```bash
-git clone <本仓库地址> /c/Users/<你的用户名>/.zcode/skills/star-resume-writer
+cp -r /tmp/star-resume-writer /c/Users/<你的用户名>/.claude/skills/
 ```
 
-也可以直接下载本仓库的 ZIP，解压后把整个目录放进 `~/.zcode/skills/` 下，目录名保持 `star-resume-writer`。
+### 方式二：直接下载
+
+下载本仓库 ZIP，解压后把整个 `star-resume-writer` 目录放进上表对应的 skills 目录即可。
+
+### 方式三：手动接入其他工具
+
+如果你的 AI 助手不支持 skills 目录，直接把 `SKILL.md` 的内容贴进它的系统提示或自定义指令里，效果等价。
 
 装完后新开一个会话生效。
+
+---
+
+## 它不依赖特定平台
+
+- **纯文本**：全站 Markdown，无脚本、无二进制
+- **无外部依赖**：只有 §9 的验收脚本需要 Python + `pymupdf`，写作规范部分零依赖
+- **路径无关**：不写死任何人的目录结构，首次使用会先探测你的项目形态
 
 ---
 
