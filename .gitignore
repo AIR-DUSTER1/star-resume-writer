@@ -1,0 +1,15 @@
+# 临时渲染产物
+*.png
+_chk*.png
+*.pdf
+
+# 编辑器与系统
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# 备份
+*.bak
+*.bak-*
+*~
